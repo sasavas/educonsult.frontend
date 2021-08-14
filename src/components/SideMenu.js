@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import MainMenuItem from "./MainMenuItem";
 import menuItems from "../constants/menuItems";
 import SubMenuItem from "./SubMenuItem";
@@ -11,7 +10,7 @@ const SideMenu = () => {
           <div className="sidebar-header">
             <div className="d-flex justify-content-between">
               <div className="logo">
-                <a href="#">
+                <a href="/">
                   <img src="assets/images/logo/logo.png" alt="Logo" />
                 </a>
               </div>

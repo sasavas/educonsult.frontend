@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Courses from "./Courses";
+import Courses from "./components/Courses";
 import SideMenu from "./components/SideMenu";
 import Students from "./components/Students";
 import Dashboard from "./components/Dashboard";
