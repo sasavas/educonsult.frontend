@@ -5,7 +5,7 @@ import {
   changeActiveLink,
 } from "../state/features/menuSelectorSlice";
 
-const SubMenuItem = ({ item }) => {
+const SubMenuItem = ({ item, icon }) => {
   const activeItem = useSelector(selectActiveItem);
   const dispatch = useDispatch();
 
@@ -14,7 +14,7 @@ const SubMenuItem = ({ item }) => {
   return (
     <li className="sidebar-item  has-sub" key={item.linkTo}>
       <Link to={item.linkTo} className="sidebar-link">
-        <i className="bi bi-stack"></i>
+        <i className={icon}></i>
         <span>{item.title}</span>
       </Link>
       <ul className="submenu">

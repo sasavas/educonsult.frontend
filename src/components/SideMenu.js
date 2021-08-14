@@ -27,20 +27,23 @@ const SideMenu = () => {
 
             {menuItems.map((item) => {
               if (item.subMenu) {
-                return <SubMenuItem key={item.linkTo} item={item} />;
+                return (
+                  <SubMenuItem
+                    key={item.linkTo}
+                    item={item}
+                    icon={item.bootstrapIcon}
+                  />
+                );
               } else {
-                return <MainMenuItem key={item.linkTo} item={item} />;
+                return (
+                  <MainMenuItem
+                    key={item.linkTo}
+                    item={item}
+                    icon={item.bootstrapIcon}
+                  />
+                );
               }
             })}
-
-            <li className="sidebar-title">Forms &amp; Tables</li>
-
-            <li className="sidebar-item  ">
-              <a href="form-layout.html" className="sidebar-link">
-                <i className="bi bi-file-earmark-medical-fill"></i>
-                <span>Form Layout</span>
-              </a>
-            </li>
           </ul>
         </div>
         <button className="sidebar-toggler btn x">

@@ -2,22 +2,35 @@ const menuItems = [
   {
     title: "Dashboard",
     linkTo: "/",
+    bootstrapIcon: "bi bi-grid-fill",
   },
   {
     title: "Courses",
-    linkTo: "/courses",
+    linkTo: "/coursesMain",
+    bootstrapIcon: "bi bi-stack",
+    subMenu: [
+      {
+        title: "Course List",
+        linkTo: "/courses",
+      },
+      {
+        title: "Add New Course",
+        linkTo: "/addcourse",
+      },
+    ],
   },
   {
     title: "Students",
-    linkTo: "/students",
+    linkTo: "/studentsMain",
+    bootstrapIcon: "bi bi-person-fill",
     subMenu: [
       {
-        title: "About",
-        linkTo: "/about",
+        title: "Student List",
+        linkTo: "/students",
       },
       {
-        title: "Students Info",
-        linkTo: "/studentsInfo",
+        title: "Add New Students",
+        linkTo: "/addStudent",
       },
     ],
   },

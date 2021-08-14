@@ -6,7 +6,7 @@ import {
   changeActiveLink,
 } from "../state/features/menuSelectorSlice";
 
-const MainMenuItem = ({ item }) => {
+const MainMenuItem = ({ item, icon }) => {
   const activeItem = useSelector(selectActiveItem);
   const dispatch = useDispatch();
 
@@ -21,7 +21,7 @@ const MainMenuItem = ({ item }) => {
       onClick={() => dispatch(changeActiveLink(item.linkTo))}
     >
       <Link to={item.linkTo} className="sidebar-link">
-        <i className="bi bi-grid-fill"></i>
+        <i className={icon}></i>
         <span>{item.title}</span>
       </Link>
     </li>

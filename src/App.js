@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Courses from "./Courses";
 import SideMenu from "./components/SideMenu";
 import Students from "./components/Students";
+import Dashboard from "./components/Dashboard";
+import AddStudent from "./components/AddStudent";
+import AddCourse from "./components/AddCourse";
 
 const App = () => {
   return (
@@ -17,30 +20,15 @@ const App = () => {
       <Router>
         <SideMenu></SideMenu>
         <Switch>
-          <Route exact path="/" component={Home}></Route>
+          <Route exact path="/" component={Dashboard}></Route>
           <Route exact path="/courses" component={Courses}></Route>
-          <Route exact path="/about" component={About}></Route>
+          <Route exact path="/addCourse" component={AddCourse}></Route>
           <Route exact path="/students" component={Students}></Route>
+          <Route exact path="/addStudent" component={AddStudent}></Route>
         </Switch>
       </Router>
     </div>
   );
 };
-
-function Home() {
-  return (
-    <div id="main">
-      <h2>Home page</h2>
-    </div>
-  );
-}
-
-function About() {
-  return (
-    <div id="main">
-      <h2>About page</h2>
-    </div>
-  );
-}
 
 export default App;
