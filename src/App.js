@@ -1,10 +1,10 @@
-import Fields from "./Fields";
+import Courses from "./Courses";
 
 const App = () => {
   return (
     <div className="App">
       <h1>Initial app</h1>
-      <Fields></Fields>
+      <Courses></Courses>
     </div>
   );
 };

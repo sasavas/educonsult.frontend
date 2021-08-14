@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import fieldsReducer from "./features/fieldsSlice";
+import coursesReducer from "./features/coursesSlice";
 
 export const store = configureStore({
   reducer: {
-    fields: fieldsReducer,
+    courses: coursesReducer,
   },
 });

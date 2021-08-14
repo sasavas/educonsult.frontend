@@ -1,25 +1,25 @@
-import Field from "./Field";
+import Course from "./Course";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
-  loadFields,
-  selectFields,
+  loadCourses,
+  selectCourses,
   selectLoaded,
-} from "./state/features/fieldsSlice";
+} from "./state/features/coursesSlice";
 
-const Fields = (props) => {
-  const fields = useSelector(selectFields);
+const Courses = (props) => {
+  const courses = useSelector(selectCourses);
   const loaded = useSelector(selectLoaded);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(loadFields());
+    dispatch(loadCourses());
   }, [dispatch]);
 
   return (
     <div>
       {loaded ? (
-        fields.map((f) => <Field field={f} key={f._id}></Field>)
+        courses.map((c) => <Course course={c} key={c._id}></Course>)
       ) : (
         <p>Loading</p>
       )}
@@ -27,4 +27,4 @@ const Fields = (props) => {
   );
 };
 
-export default Fields;
+export default Courses;
