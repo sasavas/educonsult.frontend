@@ -9,10 +9,13 @@ import AddCourse from "./components/AddCourse";
 
 const App = () => {
   return (
-    <div className="app">
+    <div id="main">
       <div>
         <header className="mb-3">
-          <a href="/" className="burger-btn d-block d-xl-none">
+          <a
+            className="burger-btn d-block d-xl-none"
+            style={{ cursor: "Pointer" }}
+          >
             <i className="bi bi-justify fs-3"></i>
           </a>
         </header>

@@ -1,6 +1,6 @@
 const Students = () => {
   return (
-    <div id="main">
+    <div>
       <h2>Students List</h2>
     </div>
   );

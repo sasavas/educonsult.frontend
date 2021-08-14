@@ -1,6 +1,6 @@
 const AddCourse = () => {
   return (
-    <div id="main">
+    <div>
       <h2>Add new Course</h2>
     </div>
   );
