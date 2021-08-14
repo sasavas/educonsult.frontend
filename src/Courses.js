@@ -17,7 +17,7 @@ const Courses = (props) => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div id="main">
       {loaded ? (
         courses.map((c) => <Course course={c} key={c._id}></Course>)
       ) : (
