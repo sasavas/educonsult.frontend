@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   activeItem: "/",
+  activeSubItem: "",
 };
 
 export const menuSelectorSlicer = createSlice({
@@ -10,15 +11,20 @@ export const menuSelectorSlicer = createSlice({
   reducers: {
     changeActiveLink: (state, action) => {
       console.log("state", state);
-      console.log("action.payload", action.payload);
-
       state.activeItem = action.payload;
+      state.activeSubItem = "";
+    },
+    changeActiveSubLink: (state, action) => {
+      console.log("state", state);
+      state.activeSubItem = action.payload;
     },
   },
 });
 
 export const selectActiveItem = (state) => state.menuSelector.activeItem;
+export const selectActiveSubItem = (state) => state.menuSelector.activeSubItem;
 
-export const { changeActiveLink } = menuSelectorSlicer.actions;
+export const { changeActiveLink, changeActiveSubLink } =
+  menuSelectorSlicer.actions;
 
 export default menuSelectorSlicer.reducer;
