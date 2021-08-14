@@ -1,4 +1,7 @@
 import { Link } from "react-router-dom";
+import MainMenuItem from "./MainMenuItem";
+import menuItems from "../constants/menuItems";
+import SubMenuItem from "./SubMenuItem";
 
 const SideMenu = () => {
   return (
@@ -8,7 +11,7 @@ const SideMenu = () => {
           <div className="d-flex justify-content-between">
             <div className="logo">
               <Link to="/">
-                <img src="assets/images/logo/logo.png" alt="Logo" srcset="" />
+                <img src="assets/images/logo/logo.png" alt="Logo" srcSet="" />
               </Link>
             </div>
             <div className="toggler">
@@ -18,38 +21,17 @@ const SideMenu = () => {
             </div>
           </div>
         </div>
-        <div classNameNameName="sidebar-menu">
+        <div className="sidebar-menu">
           <ul className="menu">
             <li className="sidebar-title">Menu</li>
 
-            <li className="sidebar-item  ">
-              <Link to="/" className="sidebar-link">
-                <i className="bi bi-grid-fill"></i>
-                <span>Dashboard</span>
-              </Link>
-            </li>
-
-            <li className="sidebar-item">
-              <Link to="/courses" className="sidebar-link">
-                <i className="bi bi-grid-fill"></i>
-                <span>Courses</span>
-              </Link>
-            </li>
-
-            <li className="sidebar-item  has-sub">
-              <Link to="/students" className="sidebar-link">
-                <i className="bi bi-stack"></i>
-                <span>Students</span>
-              </Link>
-              <ul className="submenu ">
-                <li className="submenu-item ">
-                  <Link to="/about">About</Link>
-                </li>
-                <li className="submenu-item ">
-                  <Link to="/students">Students</Link>
-                </li>
-              </ul>
-            </li>
+            {menuItems.map((item) => {
+              if (item.subMenu) {
+                return <SubMenuItem key={item.linkTo} item={item} />;
+              } else {
+                return <MainMenuItem key={item.linkTo} item={item} />;
+              }
+            })}
 
             <li className="sidebar-title">Forms &amp; Tables</li>
 

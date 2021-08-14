@@ -1,0 +1,31 @@
+import { Link } from "react-router-dom";
+
+import { useSelector, useDispatch } from "react-redux";
+import {
+  selectActiveItem,
+  changeActiveLink,
+} from "../state/features/menuSelectorSlice";
+
+const MainMenuItem = ({ item }) => {
+  const activeItem = useSelector(selectActiveItem);
+  const dispatch = useDispatch();
+
+  console.log("activeItem", activeItem);
+
+  const classes =
+    activeItem === item.linkTo ? "sidebar-item active" : "sidebar-item";
+
+  return (
+    <li
+      className={classes}
+      onClick={() => dispatch(changeActiveLink(item.linkTo))}
+    >
+      <Link to={item.linkTo} className="sidebar-link">
+        <i className="bi bi-grid-fill"></i>
+        <span>{item.title}</span>
+      </Link>
+    </li>
+  );
+};
+
+export default MainMenuItem;
