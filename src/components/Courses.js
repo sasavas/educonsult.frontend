@@ -1,4 +1,4 @@
-import Course from "./Course";
+import CourseCard from "./CourseCard";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -23,8 +23,9 @@ const Courses = (props) => {
   } else {
     return (
       <div>
+        <h1 style={{ marginBottom: "2rem" }}>Programlar</h1>
         {loaded ? (
-          courses.map((c) => <Course course={c} key={c._id}></Course>)
+          courses.map((c) => <CourseCard course={c} key={c._id}></CourseCard>)
         ) : (
           <p>Loading</p>
         )}
