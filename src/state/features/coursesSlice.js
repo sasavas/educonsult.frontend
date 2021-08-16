@@ -1,6 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+import { coursesRoute } from "../../constants/network";
+
 const initialState = {
   value: [],
   loaded: false,
@@ -11,7 +13,7 @@ export const loadCourses = createAsyncThunk(
   "courses/fetchCourses",
   async () => {
     return axios
-      .get("http://localhost:3008/fields")
+      .get(coursesRoute)
       .then((result) => {
         return { value: result.data, loaded: true };
       })
