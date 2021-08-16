@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./StudentCard.css";
 
 const StudentCard = ({ student }) => {
@@ -44,9 +45,12 @@ const StudentCard = ({ student }) => {
                       >
                         Bölüm Ekle
                       </button>
-                      <button className="btn btn-block btn-outline-primary">
+                      <Link
+                        to="/studentDetails"
+                        className="btn btn-block btn-outline-primary"
+                      >
                         Bilgileri Düzenle
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>

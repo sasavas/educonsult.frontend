@@ -6,6 +6,7 @@ import Students from "./components/Students";
 import Dashboard from "./components/Dashboard";
 import AddStudent from "./components/AddStudent";
 import AddCourse from "./components/AddCourse";
+import StudentDetails from "./components/StudentDetails";
 
 const App = () => {
   return (
@@ -28,6 +29,11 @@ const App = () => {
           <Route exact path="/addCourse" component={AddCourse}></Route>
           <Route exact path="/students" component={Students}></Route>
           <Route exact path="/addStudent" component={AddStudent}></Route>
+          <Route
+            exact
+            path="/studentDetails"
+            component={StudentDetails}
+          ></Route>
         </Switch>
       </Router>
     </div>
