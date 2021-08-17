@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-import { studentsRoute } from "../../constants/network";
+import { studentsRoute, studentById } from "../../constants/network";
 
 const initialState = {
   value: [],
+  student: {},
   loaded: false,
   error: null,
 };

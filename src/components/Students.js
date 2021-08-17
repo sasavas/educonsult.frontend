@@ -25,7 +25,7 @@ const Students = () => {
       <div>
         <h1 style={{ marginBottom: "2rem" }}>Öğrenciler</h1>
         {loaded ? (
-          students.map((s) => <StudentCard student={s} />)
+          students.map((s) => <StudentCard key={s._id} student={s} />)
         ) : (
           <p>Loading...</p>
         )}

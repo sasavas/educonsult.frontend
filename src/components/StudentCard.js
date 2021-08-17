@@ -46,7 +46,7 @@ const StudentCard = ({ student }) => {
                         Bölüm Ekle
                       </button>
                       <Link
-                        to="/studentDetails"
+                        to={"/studentDetails/" + student._id}
                         className="btn btn-block btn-outline-primary"
                       >
                         Bilgileri Düzenle
