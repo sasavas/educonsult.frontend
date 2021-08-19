@@ -6,7 +6,7 @@ import {
   selectCourses,
   selectLoaded,
   selectError,
-} from "../state/features/coursesSlice";
+} from "../../state/features/coursesSlice.js";
 
 const Courses = (props) => {
   const courses = useSelector(selectCourses);

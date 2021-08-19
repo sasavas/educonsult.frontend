@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   selectActiveItem,
   changeActiveLink,
-} from "../state/features/menuSelectorSlice";
+} from "../../state/features/menuSelectorSlice";
 
 const MainMenuItem = ({ item, icon }) => {
   const activeItem = useSelector(selectActiveItem);

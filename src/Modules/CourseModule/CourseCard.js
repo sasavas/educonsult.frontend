@@ -1,5 +1,5 @@
 import "./CourseCard.css";
-import Card from "./commons/Card";
+import Card from "../../components/Card";
 
 const CourseCard = ({ course }) => {
   const capitalize = (string) => {

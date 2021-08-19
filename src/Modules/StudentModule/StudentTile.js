@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Card from "./commons/Card";
+import Card from "../../components/Card.js";
 import "./StudentTile.css";
 
 const StudentTile = ({ student }) => {

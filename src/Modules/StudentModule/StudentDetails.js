@@ -2,9 +2,9 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import PipeLineItem from "./PipelineItem";
-import Card from "./commons/Card";
-import { studentById } from "../constants/network";
-import studentPipelines from "../constants/studentPipeline";
+import Card from "../../components/Card";
+import { studentById } from "../../constants/network.js";
+import studentPipelines from "../../constants/studentPipeline";
 import "./StudentDetails.css";
 
 const StudentDetails = () => {

@@ -1,5 +1,5 @@
 import MainMenuItem from "./MainMenuItem";
-import menuItems from "../constants/menuItems";
+import menuItems from "../../constants/menuItems";
 import SubMenuItem from "./SubMenuItem";
 
 const SideMenu = () => {

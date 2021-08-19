@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Courses from "./components/Courses";
-import SideMenu from "./components/SideMenu";
-import Students from "./components/Students";
-import Dashboard from "./components/Dashboard";
-import AddStudent from "./components/AddStudent";
-import AddCourse from "./components/AddCourse";
-import StudentDetails from "./components/StudentDetails";
+import SideMenu from "./Modules/MenuModule/SideMenu";
+import Dashboard from "./Modules/DashboardModule/Dashboard";
+import Courses from "./Modules/CourseModule/Courses";
+import Students from "./Modules/StudentModule/Students";
+import AddStudent from "./Modules/StudentModule/AddStudent";
+import AddCourse from "./Modules/CourseModule/AddCourse";
+import StudentDetails from "./Modules/StudentModule/StudentDetails";
 
 const App = () => {
   return (

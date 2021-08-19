@@ -5,7 +5,7 @@ import {
   selectActiveSubItem,
   changeActiveLink,
   changeActiveSubLink,
-} from "../state/features/menuSelectorSlice";
+} from "../../state/features/menuSelectorSlice";
 
 const SubMenuItem = ({ item, icon }) => {
   const activeItem = useSelector(selectActiveItem);
