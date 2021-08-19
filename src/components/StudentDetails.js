@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import PipeLineItem from "./PipelineItem";
+import Card from "./commons/Card";
 import { studentById } from "../constants/network";
 import studentPipelines from "../constants/studentPipeline";
 import "./StudentDetails.css";
@@ -36,23 +37,54 @@ const StudentDetails = () => {
         <span>
           {student.email} | {student.phone}{" "}
         </span>
+      </p>
 
-        <section id="content-types" style={{ marginTop: "1.6rem" }}>
+      <section id="content-types" style={{ marginTop: "1.6rem" }}>
+        <Card>
+          <div className="pipeline-card">
+            {studentPipelines.map((p) => (
+              <PipeLineItem item={p}></PipeLineItem>
+            ))}
+          </div>
+        </Card>
+        <Card>
           <div className="row">
-            <div className="col-lg-12 col-sm-12">
-              <div className="card">
-                <div className="card-content">
-                  <div className="card-body">
-                    {studentPipelines.map((p) => (
-                      <PipeLineItem item={p}></PipeLineItem>
-                    ))}
-                  </div>
-                </div>
+            <div className="col-md-4">
+              <h4>Son Yapılan İşlem</h4>
+              <p className="student-info">
+                Milano Da Vinci Unicersitesi Tip Bolumune Muracaat Edildi
+              </p>
+            </div>
+            <div className="col-md-4">
+              <div>
+                <h4>Sıradaki Yapılacak</h4>
               </div>
+              <p className="student-info">
+                Ogrenci ile iletisime gecilerek basvuru sureci hakkinda bilgi
+                verilecek
+              </p>
+            </div>
+            <div className="col-md-4">
+              <h4>Uçuş Bilgisi</h4>
+              <p className="student-info">
+                <span className="student-sub-info">29.09.2021</span>
+                <span className="student-sub-info">14:30</span>
+                <span className="student-sub-info">Istanbul -- Milano</span>
+                <span
+                  className="student-sub-info"
+                  style={{ fontStyle: "italic" }}
+                >
+                  Turk Hava Yollari
+                </span>
+              </p>
             </div>
           </div>
-        </section>
-      </p>
+        </Card>
+        <div className="student-action-buttons">
+          <button className="btn btn-outline-primary">Yeni Görev Ekle</button>
+          <button className="btn btn-outline-primary">E-posta Gönder</button>
+        </div>
+      </section>
     </div>
   );
 };

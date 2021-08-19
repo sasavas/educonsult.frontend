@@ -1,0 +1,19 @@
+.card {
+    margin-bottom: 1rem !important;
+}
+
+.card .card-text {
+    margin-top: -0.4rem !important;
+    line-height: 1rem;
+
+}
+
+.card .card-title {
+    margin-bottom: 1.6rem !important;
+}
+
+.card .card-title span {
+    font-size: 1rem;
+}
+
+.card h4 {}

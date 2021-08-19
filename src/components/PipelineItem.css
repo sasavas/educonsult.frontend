@@ -1,0 +1,18 @@
+.pipeline-card {
+    display: flex;
+    flex-direction: row;
+}
+
+.item-container {
+    width: 12rem;
+    text-align: center;
+}
+
+.pipeline-icon {
+    font-size: 2.4rem;
+    line-height: 6rem;
+}
+
+.pipeline-text {
+    font-size: .8rem;
+}

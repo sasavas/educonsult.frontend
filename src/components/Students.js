@@ -1,4 +1,4 @@
-import StudentCard from "./StudentCard";
+import StudentTile from "./StudentTile";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -25,7 +25,7 @@ const Students = () => {
       <div>
         <h1 style={{ marginBottom: "2rem" }}>Öğrenciler</h1>
         {loaded ? (
-          students.map((s) => <StudentCard key={s._id} student={s} />)
+          students.map((s) => <StudentTile key={s._id} student={s} />)
         ) : (
           <p>Loading...</p>
         )}

@@ -1,3 +1,5 @@
+import "./PipelineItem.css";
+
 const PipelineItem = ({ item }) => {
   let iconClass;
   if (item.status === "todo") {
@@ -5,13 +7,14 @@ const PipelineItem = ({ item }) => {
   } else if (item.status === "inProgress") {
     iconClass = "bi bi-circle-half";
   } else if (item.status === "done") {
-    iconClass = "bi bi-check-circle";
+    iconClass = "bi bi-circle-fill";
   }
 
   return (
-    <div style={{ width: "12rem" }}>
-      <i className={iconClass} style={{ fontSize: "2rem" }}></i>
-      <p style={{ fontSize: ".8rem" }}>{item.text}</p>
+    <div className="item-container">
+      <i className={iconClass + " pipeline-icon"}></i>
+      <br></br>
+      <p className="pipeline-text">{item.text}</p>
     </div>
   );
 };

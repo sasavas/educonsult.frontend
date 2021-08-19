@@ -1,4 +1,15 @@
-.card-body {
+span.student-sub-info {
+    display: block;
+    line-height: 1.2rem;
+}
+
+.student-info {
+    line-height: 1.2rem;
+    font-size: 0.9rem;
+}
+
+.student-action-buttons {
+    margin-top: 2rem;
     display: flex;
-    flex-direction: row;
+    gap: 1rem
 }
