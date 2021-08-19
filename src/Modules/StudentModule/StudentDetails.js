@@ -84,6 +84,9 @@ const StudentDetails = () => {
         </Card>
         <div className={styles.studentActions}>
           <button className="btn btn-outline-primary">Yeni Görev Ekle</button>
+          <Link to="/registerToProgram" className="btn btn-outline-primary">
+            Bölüm Kaydı Yap
+          </Link>
           <button className="btn btn-outline-primary">E-posta Gönder</button>
         </div>
       </section>

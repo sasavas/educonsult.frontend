@@ -7,6 +7,7 @@ import Students from "./Modules/StudentModule/Students";
 import AddStudent from "./Modules/StudentModule/AddStudent";
 import AddCourse from "./Modules/CourseModule/AddCourse";
 import StudentDetails from "./Modules/StudentModule/StudentDetails";
+import ProgramApplication from "./Modules/StudentModule/ProgramApplication";
 
 const App = () => {
   return (
@@ -33,6 +34,11 @@ const App = () => {
             path="/studentDetails/:id"
             exact
             component={StudentDetails}
+          ></Route>
+          <Route
+            exact
+            path="/registerToProgram"
+            component={ProgramApplication}
           ></Route>
         </Switch>
       </Router>
