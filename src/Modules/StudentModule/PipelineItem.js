@@ -1,4 +1,4 @@
-import "./PipelineItem.css";
+import styles from "./PipelineItem.module.css";
 
 const PipelineItem = ({ item }) => {
   let iconClass;
@@ -11,10 +11,10 @@ const PipelineItem = ({ item }) => {
   }
 
   return (
-    <div className="item-container">
-      <i className={iconClass + " pipeline-icon"}></i>
+    <div className={styles.itemContainer}>
+      <i className={`${iconClass} ${styles.pipelineIcon}`}></i>
       <br></br>
-      <p className="pipeline-text">{item.text}</p>
+      <p className={styles.pipelineText}>{item.text}</p>
     </div>
   );
 };

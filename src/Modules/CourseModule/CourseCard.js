@@ -1,4 +1,4 @@
-import "./CourseCard.css";
+import styles from "./CourseCard.module.css";
 import Card from "../../components/Card";
 
 const CourseCard = ({ course }) => {
@@ -9,16 +9,16 @@ const CourseCard = ({ course }) => {
   return (
     <section id="content-types">
       <Card>
-        <div className="course-container">
-          <div className="program-container">
-            <div className="program-picture">
+        <div className={styles.courseContainer}>
+          <div className={styles.programContainer}>
+            <div className={styles.programPicture}>
               <img
                 className="img-fluid img-thumbnail"
                 src="assets/images/samples/placeholder-image.jpg"
                 alt="Üniversite Fotoğrafı"
               ></img>
             </div>
-            <div className="program-details">
+            <div className={styles.programDetails}>
               <div className="card-title">
                 <h4>{course.fieldName}</h4>
                 <span>{capitalize(course.school.name)}, </span>
@@ -26,7 +26,9 @@ const CourseCard = ({ course }) => {
                   {capitalize(course.fieldType)}
                 </span>
               </div>
-              <p className="card-text program-details-notes">{course.notes}</p>
+              <p className={`card-text ${styles.programDetailsNotes}`}>
+                {course.notes}
+              </p>
               {course.lanugage && (
                 <p className="card-text">
                   <span style={{ fontWeight: "bold" }}>Language: </span>{" "}
@@ -48,7 +50,7 @@ const CourseCard = ({ course }) => {
                 </p>
               )}
             </div>
-            <div className="program-dates">
+            <div className={styles.programDates}>
               <p>
                 <span style={{ fontWeight: "bold" }}>Başvuru Başlangıç: </span>
                 {course.applicationDates.beginDate.substring(0, 10)}

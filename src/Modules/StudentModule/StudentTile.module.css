@@ -1,28 +1,28 @@
-.student-container {
+.studentContainer {
     display: grid;
     grid-template-columns: 1fr 6fr 2fr;
     column-gap: 1rem;
 }
 
-.student-container img {
+.studentContainer img {
     max-width: 10rem;
 }
 
-.student-actions span {
+.studentActions span {
     display: block;
 }
 
 
-.student-details {
+.studentDetails {
     margin-top: 1rem;
 }
 
-.student-actions {
+.studentActions {
     margin-top: 1rem;
 }
 
 @media screen and (min-width: 1400px) {
-    .student-container {
+    .studentContainer {
         display: grid;
         grid-template-columns: 1fr 6fr 2fr;
     }
@@ -30,37 +30,37 @@
 
 @media screen and (max-width: 1000px) {
 
-    .student-container {
+    .studentContainer {
         display: grid;
         grid-template-columns: 1fr 6fr 2fr;
     }
 
-    .student-actions span {
+    .studentActions span {
         display: inline;
     }
 
-    .student-picture img {
+    .studentPicture img {
         min-width: 10rem;
     }
 }
 
 @media screen and (max-width: 720px) {
-    .student-container {
+    .studentContainer {
         display: grid;
         grid-template-columns: 1fr 3fr;
         grid-template-areas:
-            "student-picture student-details"
-            "student-picture student-actions";
+            "studentPicture studentDetails"
+            "studentPicture studentActions";
     }
 }
 
 @media screen and (max-width: 600px) {
-    .student-container {
+    .studentContainer {
         display: flex;
         flex-direction: column;
     }
 
-    .student-picture img {
+    .studentPicture img {
         max-width: 10rem;
 
     }

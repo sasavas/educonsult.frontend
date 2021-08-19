@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import Card from "../../components/Card.js";
-import "./StudentTile.css";
+import styles from "./StudentTile.module.css";
 
 const StudentTile = ({ student }) => {
   return (
     <div>
       <section id="content-types">
         <Card>
-          <div className="student-container">
-            <div className="student-picture">
+          <div className={styles.studentContainer}>
+            <div className={styles.studentPicture}>
               <img
                 className="img img-thumbnail img-responsive"
                 src={`assets/images/faces/${
@@ -17,7 +17,7 @@ const StudentTile = ({ student }) => {
                 alt="Öğrenci Fotoğrafı"
               ></img>
             </div>
-            <div className="student-details">
+            <div className={styles.studentDetails}>
               <p className="card-text">
                 {student.firstName + " " + student.lastName}
               </p>
@@ -33,7 +33,7 @@ const StudentTile = ({ student }) => {
                 <span> {student.targetProgram.program} </span>
               </p>
             </div>
-            <div className="student-actions">
+            <div className={styles.studentActions}>
               <button
                 className="btn btn-block btn-primary"
                 style={{ marginBottom: ".4rem" }}
