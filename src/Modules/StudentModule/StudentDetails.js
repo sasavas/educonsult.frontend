@@ -1,22 +1,20 @@
-import { Link, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { Link } from "react-router-dom";
 import PipeLineItem from "./PipelineItem";
 import Card from "../../components/Card";
-import { studentById } from "../../constants/network.js";
 import studentPipelines from "../../constants/studentPipeline";
 import styles from "./StudentDetails.module.css";
 
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { selectStudent } from "../../state/features/studentsSlice.js";
+
 const StudentDetails = () => {
-  const { id } = useParams();
   const [student, setStudent] = useState({});
+  const studentSelected = useSelector(selectStudent);
 
   useEffect(() => {
-    axios.get(studentById(id)).then((result) => {
-      console.log("student by id", result.data);
-      setStudent(result.data[0]);
-    });
-  }, [id]);
+    setStudent(studentSelected);
+  }, [studentSelected]);
 
   return (
     <div>

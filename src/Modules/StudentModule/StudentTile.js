@@ -1,8 +1,11 @@
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Card from "../../components/Card.js";
 import styles from "./StudentTile.module.css";
+import { getStudent } from "../../state/features/studentsSlice.js";
 
 const StudentTile = ({ student }) => {
+  const dispatch = useDispatch();
   return (
     <div>
       <section id="content-types">
@@ -41,8 +44,9 @@ const StudentTile = ({ student }) => {
                 Bölüm Ekle
               </button>
               <Link
-                to={"/studentDetails/" + student._id}
+                to={"/studentDetails"}
                 className="btn btn-block btn-outline-primary"
+                onClick={() => dispatch(getStudent(student))}
               >
                 Bilgileri Düzenle
               </Link>

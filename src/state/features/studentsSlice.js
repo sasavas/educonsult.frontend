@@ -28,7 +28,11 @@ export const loadStudents = createAsyncThunk(
 export const studentsSlice = createSlice({
   name: "students",
   initialState,
-  reducers: {},
+  reducers: {
+    getStudent: (state, action) => {
+      state.student = action.payload;
+    },
+  },
   extraReducers: {
     [loadStudents.pending]: (state) => {
       state.loaded = false;
@@ -47,8 +51,12 @@ export const studentsSlice = createSlice({
 
 export const selectStudents = (state) => state.students.value;
 
+export const selectStudent = (state) => state.students.student;
+
 export const selectLoaded = (state) => state.students.loaded;
 
 export const selectError = (state) => state.students.error;
+
+export const { getStudent } = studentsSlice.actions;
 
 export default studentsSlice.reducer;

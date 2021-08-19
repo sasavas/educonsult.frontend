@@ -6,7 +6,7 @@ import {
   selectStudents,
   selectLoaded,
   selectError,
-} from "../../state/features/studentSlice.js";
+} from "../../state/features/studentsSlice.js";
 
 const Students = () => {
   const students = useSelector(selectStudents);
