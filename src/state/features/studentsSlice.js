@@ -31,17 +31,20 @@ export const loadStudents = createAsyncThunk(
 export const registerStudentToProgram = createAsyncThunk(
   "students/registerStudentToProgram",
   async ({ studentId, programId }) => {
-    console.log(programId);
     const path = registerStudent(studentId, programId);
 
-    return axios.put(path).then((result) => {
-      console.log(result.data);
-      if (result.status === 200) {
-        return { student: result.data };
-      } else {
-        console.log(result.data.msg);
-      }
-    });
+    return axios
+      .put(path)
+      .then((result) => {
+        console.log(result.status);
+
+        if (result.status === 200) {
+          return { student: result.data };
+        }
+      })
+      .catch((err) => {
+        return { msg: "Already applied to this program", err: err };
+      });
   }
 );
 
@@ -68,8 +71,11 @@ export const studentsSlice = createSlice({
     },
     [registerStudentToProgram.pending]: (state) => {},
     [registerStudentToProgram.fulfilled]: (state, action) => {
-      if (action.payload) {
+      if (action.payload.student) {
         state.student = action.payload;
+      } else {
+        console.log(action.payload.msg);
+        console.log(action.payload.err);
       }
     },
   },
