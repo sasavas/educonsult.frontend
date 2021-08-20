@@ -1,7 +1,7 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { Link } from "react-router-dom";
-import PipeLineItem from "./PipelineItem";
-import Card from "../../components/Card";
-import studentPipelines from "../../constants/studentPipeline";
+import StudentInfo from "./StudentSummary";
+import ActiveApplications from "./ActiveApplications";
 import styles from "./StudentDetails.module.css";
 
 import { useEffect, useState } from "react";
@@ -15,6 +15,17 @@ const StudentDetails = () => {
   useEffect(() => {
     setStudent(studentSelected);
   }, [studentSelected]);
+
+  const tabs = ["Öğrenci Özet", "Kayıtlı Bölümler Detay"];
+  const [activeTab, setActiveTab] = useState(tabs[0]);
+
+  const renderActiveTab = () => {
+    if (activeTab === tabs[0]) {
+      return <StudentInfo />;
+    } else if (activeTab === tabs[1]) {
+      return <ActiveApplications />;
+    }
+  };
 
   return (
     <div>
@@ -36,57 +47,27 @@ const StudentDetails = () => {
           {student.email} | {student.phone}{" "}
         </span>
       </p>
-
+      <ul style={{ marginTop: "2rem" }} class="nav nav-pills">
+        {tabs.map((t) => {
+          const isActive = activeTab === t;
+          return (
+            <li className="nav-item">
+              <button
+                className={`${styles.linkButton} btn btn-link nav-link ${
+                  isActive ? "active" : ""
+                }`}
+                onClick={() => {
+                  setActiveTab(t);
+                }}
+              >
+                {t}
+              </button>
+            </li>
+          );
+        })}
+      </ul>
       <section id="content-types" style={{ marginTop: "1.6rem" }}>
-        <Card>
-          <div className={styles.pipelineCard}>
-            {studentPipelines.map((p) => (
-              <PipeLineItem key={p.title} item={p}></PipeLineItem>
-            ))}
-          </div>
-        </Card>
-        <Card>
-          <div className="row">
-            <div className="col-md-4">
-              <h4>Son Yapılan İşlem</h4>
-              <p className={styles.studentInfo}>
-                Milano Da Vinci Unicersitesi Tip Bolumune Muracaat Edildi
-              </p>
-            </div>
-            <div className="col-md-4">
-              <div>
-                <h4>Sıradaki Yapılacak</h4>
-              </div>
-              <p className={styles.studentInfo}>
-                Ogrenci ile iletisime gecilerek basvuru sureci hakkinda bilgi
-                verilecek
-              </p>
-            </div>
-            <div className="col-md-4">
-              <h4>Uçuş Bilgisi</h4>
-              <p className={styles.studentInfo}>
-                <span className={styles.studentSubInfo}>29.09.2021</span>
-                <span className={styles.studentSubInfo}>14:30</span>
-                <span className={styles.studentSubInfo}>
-                  Istanbul -- Milano
-                </span>
-                <span
-                  className={styles.studentSubInfo}
-                  style={{ fontStyle: "italic" }}
-                >
-                  Turk Hava Yollari
-                </span>
-              </p>
-            </div>
-          </div>
-        </Card>
-        <div className={styles.studentActions}>
-          <button className="btn btn-outline-primary">Yeni Görev Ekle</button>
-          <Link to="/registerToProgram" className="btn btn-outline-primary">
-            Bölüm Kaydı Yap
-          </Link>
-          <button className="btn btn-outline-primary">E-posta Gönder</button>
-        </div>
+        {renderActiveTab()}
       </section>
     </div>
   );

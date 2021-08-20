@@ -1,0 +1,4 @@
+.pipelineCard {
+    display: flex;
+    flex-direction: row;
+}

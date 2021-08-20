@@ -1,0 +1,15 @@
+span.studentSubInfo {
+    display: block;
+    line-height: 1.2rem;
+}
+
+.studentInfo {
+    line-height: 1.2rem;
+    font-size: 0.9rem;
+}
+
+.studentActions {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
