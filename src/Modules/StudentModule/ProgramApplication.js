@@ -9,10 +9,13 @@ import {
   selectError,
 } from "../../state/features/coursesSlice.js";
 
+import { selectStudent } from "../../state/features/studentsSlice.js";
+
 function RegisterToProgram() {
   const courses = useSelector(selectCourses);
   const loaded = useSelector(selectLoaded);
   const error = useSelector(selectError);
+  const student = useSelector(selectStudent);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,7 +30,11 @@ function RegisterToProgram() {
         <h1 style={{ marginBottom: "2rem" }}>Program Basvurusu Yap</h1>
         {loaded ? (
           courses.map((c) => (
-            <ApplicationCard course={c} key={c._id}></ApplicationCard>
+            <ApplicationCard
+              course={c}
+              student={student}
+              key={c._id}
+            ></ApplicationCard>
           ))
         ) : (
           <p>Loading</p>

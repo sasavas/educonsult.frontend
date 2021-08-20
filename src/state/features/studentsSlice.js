@@ -36,8 +36,6 @@ export const registerStudentToProgram = createAsyncThunk(
     return axios
       .put(path)
       .then((result) => {
-        console.log(result.status);
-
         if (result.status === 200) {
           return { student: result.data };
         }
@@ -75,7 +73,6 @@ export const studentsSlice = createSlice({
         state.student = action.payload;
       } else {
         console.log(action.payload.msg);
-        console.log(action.payload.err);
       }
     },
   },

@@ -1,18 +1,11 @@
 import React from "react";
 import Card from "../../components/Card";
 import styles from "./ProgramApplicationCard.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  selectStudent,
-  registerStudentToProgram,
-} from "../../state/features/studentsSlice.js";
+import { useDispatch } from "react-redux";
+import { registerStudentToProgram } from "../../state/features/studentsSlice.js";
 
-function ProgramApplicationCard({ course }) {
+function ProgramApplicationCard({ course, student }) {
   const dispatch = useDispatch();
-  const student = useSelector(selectStudent);
-
-  console.log(student);
-  console.log(course);
 
   const capitalize = (string) => {
     return string[0].toUpperCase() + string.substring(1);
