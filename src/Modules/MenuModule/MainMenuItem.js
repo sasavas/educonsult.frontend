@@ -10,8 +10,6 @@ const MainMenuItem = ({ item, icon }) => {
   const activeItem = useSelector(selectActiveItem);
   const dispatch = useDispatch();
 
-  console.log("activeItem", activeItem);
-
   const classes =
     activeItem === item.linkTo ? "sidebar-item active" : "sidebar-item";
 

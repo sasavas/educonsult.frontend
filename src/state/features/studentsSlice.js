@@ -1,13 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-import { studentsRoute, studentById } from "../../constants/network";
+import {
+  studentsRoute,
+  studentById,
+  registerStudent,
+} from "../../constants/network";
 
 const initialState = {
   value: [],
-  student: {},
   loaded: false,
   error: null,
+  student: {},
 };
 
 export const loadStudents = createAsyncThunk(
@@ -16,12 +20,28 @@ export const loadStudents = createAsyncThunk(
     return axios
       .get(studentsRoute)
       .then((result) => {
-        console.log(result.data);
         return { value: result.data, loaded: true };
       })
       .catch((error) => {
         console.log(error);
       });
+  }
+);
+
+export const registerStudentToProgram = createAsyncThunk(
+  "students/registerStudentToProgram",
+  async ({ studentId, programId }) => {
+    console.log(programId);
+    const path = registerStudent(studentId, programId);
+
+    return axios.put(path).then((result) => {
+      console.log(result.data);
+      if (result.status === 200) {
+        return { student: result.data };
+      } else {
+        console.log(result.data.msg);
+      }
+    });
   }
 );
 
@@ -44,6 +64,12 @@ export const studentsSlice = createSlice({
         state.loaded = true;
       } else {
         state.error = "Öğrenci listesi yüklenemedi :/";
+      }
+    },
+    [registerStudentToProgram.pending]: (state) => {},
+    [registerStudentToProgram.fulfilled]: (state, action) => {
+      if (action.payload) {
+        state.student = action.payload;
       }
     },
   },

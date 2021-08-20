@@ -12,8 +12,6 @@ const SubMenuItem = ({ item, icon }) => {
   const activeSubItem = useSelector(selectActiveSubItem);
   const dispatch = useDispatch();
 
-  console.log("activeItem", activeItem);
-
   return (
     <li
       className={

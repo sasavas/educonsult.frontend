@@ -1,8 +1,19 @@
 import React from "react";
 import Card from "../../components/Card";
 import styles from "./ProgramApplicationCard.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectStudent,
+  registerStudentToProgram,
+} from "../../state/features/studentsSlice.js";
 
 function ProgramApplicationCard({ course }) {
+  const dispatch = useDispatch();
+  const student = useSelector(selectStudent);
+
+  console.log(student);
+  console.log(course);
+
   const capitalize = (string) => {
     return string[0].toUpperCase() + string.substring(1);
   };
@@ -52,7 +63,19 @@ function ProgramApplicationCard({ course }) {
             <span style={{ fontWeight: "bold" }}>Başvuru Bitiş: </span>
             <span>{course.applicationDates.endDate.substring(0, 10)}</span>
           </p>
-          <button className="btn btn-light-primary">Başvuru Yap</button>
+          <button
+            className="btn btn-light-primary"
+            onClick={() => {
+              dispatch(
+                registerStudentToProgram({
+                  studentId: student._id,
+                  programId: course._id,
+                })
+              );
+            }}
+          >
+            Başvuru Yap
+          </button>
         </div>
       </div>
     </Card>

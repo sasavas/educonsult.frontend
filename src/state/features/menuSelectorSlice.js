@@ -10,12 +10,10 @@ export const menuSelectorSlicer = createSlice({
   initialState,
   reducers: {
     changeActiveLink: (state, action) => {
-      console.log("state", state);
       state.activeItem = action.payload;
       state.activeSubItem = "";
     },
     changeActiveSubLink: (state, action) => {
-      console.log("state", state);
       state.activeSubItem = action.payload;
     },
   },

@@ -41,7 +41,7 @@ const StudentDetails = () => {
         <Card>
           <div className={styles.pipelineCard}>
             {studentPipelines.map((p) => (
-              <PipeLineItem item={p}></PipeLineItem>
+              <PipeLineItem key={p.title} item={p}></PipeLineItem>
             ))}
           </div>
         </Card>
