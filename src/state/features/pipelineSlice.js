@@ -15,7 +15,6 @@ export const loadPipelines = createAsyncThunk(
     return axios
       .get(pipelinesRoute)
       .then((result) => {
-        console.log("pipelines", result.data);
         return { value: result.data, loaded: true };
       })
       .catch((error) => {

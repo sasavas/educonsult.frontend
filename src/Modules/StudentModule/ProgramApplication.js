@@ -11,6 +11,11 @@ import {
 
 import { selectStudent } from "../../state/features/studentsSlice.js";
 
+import {
+  loadPipelines,
+  selectPipelines,
+} from "../../state/features/pipelineSlice.js";
+
 function RegisterToProgram() {
   const courses = useSelector(selectCourses);
   const loaded = useSelector(selectLoaded);
@@ -18,8 +23,11 @@ function RegisterToProgram() {
   const student = useSelector(selectStudent);
   const dispatch = useDispatch();
 
+  const pipelines = useSelector(selectPipelines);
+
   useEffect(() => {
     dispatch(loadCourses());
+    dispatch(loadPipelines());
   }, [dispatch]);
 
   if (error) {
@@ -33,6 +41,7 @@ function RegisterToProgram() {
             <ApplicationCard
               course={c}
               student={student}
+              pipelines={pipelines}
               key={c._id}
             ></ApplicationCard>
           ))

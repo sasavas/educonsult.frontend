@@ -1,26 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Card from "../../components/Card";
 import { Modal, Form, Button, Row, Col } from "react-bootstrap";
 import styles from "./ProgramApplicationCard.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { registerStudentToProgram } from "../../state/features/studentsSlice.js";
-import {
-  loadPipelines,
-  selectPipelines,
-  selectError,
-  selectLoaded,
-} from "../../state/features/pipelineSlice.js";
 
-function ProgramApplicationCard({ course, student }) {
+function ProgramApplicationCard({ course, student, pipelines }) {
   const dispatch = useDispatch();
-
-  const pipelines = useSelector(selectPipelines);
-  const loaded = useSelector(selectLoaded);
-  const error = useSelector(selectError);
-
-  useEffect(() => {
-    dispatch(loadPipelines());
-  }, [dispatch]);
 
   const [showModal, setShowModal] = useState(false);
   const handleClose = () => setShowModal(false);
@@ -76,18 +62,7 @@ function ProgramApplicationCard({ course, student }) {
               <span style={{ fontWeight: "bold" }}>Başvuru Bitiş: </span>
               <span>{course.applicationDates.endDate.substring(0, 10)}</span>
             </p>
-            <button
-              className="btn btn-light-primary"
-              onClick={handleShow}
-              // onClick={() => {
-              //   dispatch(
-              //     registerStudentToProgram({
-              //       studentId: student._id,
-              //       programId: course._id,
-              //     })
-              //   );
-              // }}
-            >
+            <button className="btn btn-light-primary" onClick={handleShow}>
               Başvuru Yap
             </button>
           </div>
@@ -147,7 +122,18 @@ function ProgramApplicationCard({ course, student }) {
           <Button variant="secondary" onClick={handleClose}>
             Kapat
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button
+            variant="primary"
+            onClick={() => {
+              dispatch(
+                registerStudentToProgram({
+                  studentId: student._id,
+                  programId: course._id,
+                  pipeline: pipelines[0],
+                })
+              );
+            }}
+          >
             Başvuru Yap
           </Button>
         </Modal.Footer>
