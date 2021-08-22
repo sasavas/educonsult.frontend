@@ -47,11 +47,11 @@ const StudentDetails = () => {
           {student.email} | {student.phone}{" "}
         </span>
       </p>
-      <ul style={{ marginTop: "2rem" }} class="nav nav-pills">
+      <ul style={{ marginTop: "2rem" }} className="nav nav-pills">
         {tabs.map((t) => {
           const isActive = activeTab === t;
           return (
-            <li className="nav-item">
+            <li className="nav-item" key={t}>
               <button
                 className={`${styles.linkButton} btn btn-link nav-link ${
                   isActive ? "active" : ""

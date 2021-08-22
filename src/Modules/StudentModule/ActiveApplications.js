@@ -13,14 +13,16 @@ function ActiveApplications() {
   return (
     <React.Fragment>
       {student.registeredPrograms.map((rp) => (
-        <Card>
-          <h6 className="card-title">{rp.programId}</h6>
-          <div className={styles.pipelineCard}>
-            {studentPipelines.map((p) => (
-              <PipelineItem key={p.title} item={p}></PipelineItem>
-            ))}
-          </div>
-        </Card>
+        <div key={rp._id}>
+          <Card>
+            <h6 className="card-title">{rp.programId}</h6>
+            <div className={styles.pipelineCard}>
+              {studentPipelines.map((p) => (
+                <PipelineItem key={p.title} item={p}></PipelineItem>
+              ))}
+            </div>
+          </Card>
+        </div>
       ))}
       <Link to="/registerToProgram" className="btn btn-outline-primary">
         Bölüm Kaydı Yap
