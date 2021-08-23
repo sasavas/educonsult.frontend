@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import ApplicationCard from "./ProgramApplicationCard";
+import ProgramApplicationCard from "./ProgramApplicationCard";
 
 import {
   loadCourses,
@@ -38,12 +38,12 @@ function RegisterToProgram() {
         <h1 style={{ marginBottom: "2rem" }}>Program Basvurusu Yap</h1>
         {loaded ? (
           courses.map((c) => (
-            <ApplicationCard
+            <ProgramApplicationCard
               course={c}
               student={student}
               pipelines={pipelines}
               key={c._id}
-            ></ApplicationCard>
+            ></ProgramApplicationCard>
           ))
         ) : (
           <p>Loading</p>

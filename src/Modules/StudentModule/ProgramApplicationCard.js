@@ -4,6 +4,7 @@ import { Modal, Form, Button, Row, Col } from "react-bootstrap";
 import styles from "./ProgramApplicationCard.module.css";
 import { useDispatch } from "react-redux";
 import { registerStudentToProgram } from "../../state/features/studentsSlice.js";
+import DatePicker from "react-date-picker";
 
 function ProgramApplicationCard({ course, student, pipelines }) {
   const dispatch = useDispatch();
@@ -11,6 +12,18 @@ function ProgramApplicationCard({ course, student, pipelines }) {
   const [showModal, setShowModal] = useState(false);
   const handleClose = () => setShowModal(false);
   const handleShow = () => setShowModal(true);
+
+  const [pipeline, setPipeline] = useState(pipelines[0]);
+
+  function handleSelectPipeline(e) {
+    setPipeline(pipelines.filter((p) => p._id === e.target.value)[0]);
+  }
+
+  const [applicationDate, setApplicationDate] = useState(new Date());
+
+  function handleApplicationDateSelect(date) {
+    setApplicationDate(date);
+  }
 
   const capitalize = (string) => {
     return string[0].toUpperCase() + string.substring(1);
@@ -87,7 +100,7 @@ function ProgramApplicationCard({ course, student, pipelines }) {
                 <Form.Control
                   plaintext
                   readOnly
-                  defaultValue="Seçilen öğrenci adı"
+                  defaultValue={student.firstName + " " + student.lastName}
                 />
               </Col>
             </Form.Group>
@@ -100,22 +113,35 @@ function ProgramApplicationCard({ course, student, pipelines }) {
                 <Form.Control
                   plaintext
                   readOnly
-                  defaultValue="Seçilen bölüm adı"
+                  defaultValue={course.fieldName}
                 />
               </Col>
             </Form.Group>
 
-            {/* <Form.Group as={Row} className="mb-3" controlId="formBasicPassword">
+            <Form.Group as={Row} className="mb-3" controlId="formBasicPassword">
               <Form.Label column sm="3">
                 Pipeline
               </Form.Label>
               <Col sm="9">
-                <Form.Select>
-                  <option value="1">First Option</option>
-                  <option value="2">Second Option</option>
-                </Form.Select>
+                <select className="form-select" onChange={handleSelectPipeline}>
+                  {pipelines.map((p) => (
+                    <option value={p._id}>{p.name}</option>
+                  ))}
+                </select>
               </Col>
-            </Form.Group> */}
+            </Form.Group>
+            <Form.Group as={Row} className="mb-3" controlId="formBasicPassword">
+              <Form.Label column sm="3">
+                Başvuru Tarihi
+              </Form.Label>
+              <Col sm="9">
+                <DatePicker
+                  selected={applicationDate}
+                  value={applicationDate}
+                  onChange={(date) => handleApplicationDateSelect(date)}
+                />
+              </Col>
+            </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
@@ -125,11 +151,14 @@ function ProgramApplicationCard({ course, student, pipelines }) {
           <Button
             variant="primary"
             onClick={() => {
+              console.log(course);
+              console.log(student);
               dispatch(
                 registerStudentToProgram({
                   studentId: student._id,
                   programId: course._id,
-                  pipeline: pipelines[0],
+                  pipeline: pipeline,
+                  applicationDate: applicationDate,
                 })
               );
             }}

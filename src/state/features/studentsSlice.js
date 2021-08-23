@@ -30,11 +30,11 @@ export const loadStudents = createAsyncThunk(
 
 export const registerStudentToProgram = createAsyncThunk(
   "students/registerStudentToProgram",
-  async ({ studentId, programId, pipeline }) => {
+  async ({ studentId, programId, pipeline, applicationDate }) => {
     const path = registerStudent(studentId, programId);
 
     return axios
-      .put(path, pipeline)
+      .put(path, { pipeline, applicationDate })
       .then((result) => {
         if (result.status === 200) {
           return { student: result.data };
