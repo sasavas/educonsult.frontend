@@ -12,18 +12,21 @@ function ActiveApplications() {
 
   return (
     <React.Fragment>
-      {student.registeredPrograms.map((rp) => (
-        <div key={rp._id}>
-          <Card>
-            <h6 className="card-title">{rp.programId}</h6>
-            <div className={styles.pipelineCard}>
-              {studentPipelines.map((p) => (
-                <PipelineItem key={p.title} item={p}></PipelineItem>
-              ))}
-            </div>
-          </Card>
-        </div>
-      ))}
+      {student.registeredPrograms.map((rp) => {
+        console.log(rp);
+        return (
+          <div key={rp._id}>
+            <Card>
+              <h6 className="card-title">{`${rp.programId.school.name}, ${rp.programId.fieldName}`}</h6>
+              <div className={styles.pipelineCard}>
+                {studentPipelines.map((p) => (
+                  <PipelineItem key={p.title} item={p}></PipelineItem>
+                ))}
+              </div>
+            </Card>
+          </div>
+        );
+      })}
       <Link to="/registerToProgram" className="btn btn-outline-primary">
         Bölüm Kaydı Yap
       </Link>
