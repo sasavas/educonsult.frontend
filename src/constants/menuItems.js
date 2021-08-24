@@ -34,6 +34,21 @@ const menuItems = [
       },
     ],
   },
+  {
+    title: "Pipelines",
+    linkTo: "pipelinesMain",
+    bootstrapIcon: "bi bi-arrow-left-right",
+    subMenu: [
+      {
+        title: "Pipeline List",
+        linkTo: "/pipelines",
+      },
+      {
+        title: "Add New Pipeline",
+        linkTo: "/addPipeline",
+      },
+    ],
+  },
 ];
 
 export default menuItems;
