@@ -37,7 +37,7 @@ export const coursesSlice = createSlice({
         state.error = null;
         state.loaded = true;
       } else {
-        state.error = "Okul listesi yüklenemedi :/";
+        state.error = "Program listesi yüklenemedi :/";
       }
     },
   },

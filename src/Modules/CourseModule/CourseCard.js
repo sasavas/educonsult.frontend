@@ -20,10 +20,10 @@ const CourseCard = ({ course }) => {
             </div>
             <div className={styles.programDetails}>
               <div className="card-title">
-                <h4>{course.fieldName}</h4>
+                <h4>{course.programName}</h4>
                 <span>{capitalize(course.school.name)}, </span>
                 <span className="fst-italic">
-                  {capitalize(course.fieldType)}
+                  {capitalize(course.programType)}
                 </span>
               </div>
               <p className={`card-text ${styles.programDetailsNotes}`}>
