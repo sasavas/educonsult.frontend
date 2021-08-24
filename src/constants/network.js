@@ -2,7 +2,7 @@ export const networkBase = "http://localhost:3008";
 
 /** Course Routes */
 
-export const coursesRoute = networkBase + "/fields";
+export const coursesRoute = networkBase + "/programs";
 
 /** Students Routes */
 

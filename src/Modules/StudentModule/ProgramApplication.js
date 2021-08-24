@@ -38,12 +38,13 @@ function RegisterToProgram() {
         <h1 style={{ marginBottom: "2rem" }}>Program Basvurusu Yap</h1>
         {loaded ? (
           courses.map((c) => (
-            <ProgramApplicationCard
-              course={c}
-              student={student}
-              pipelines={pipelines}
-              key={c._id}
-            ></ProgramApplicationCard>
+            <div key={c._id}>
+              <ProgramApplicationCard
+                course={c}
+                student={student}
+                pipelines={pipelines}
+              ></ProgramApplicationCard>
+            </div>
           ))
         ) : (
           <p>Loading</p>

@@ -12,6 +12,8 @@ const initialState = {
   loaded: false,
   error: null,
   student: {},
+  loadedStudent: false,
+  errorStudent: null,
 };
 
 export const loadStudents = createAsyncThunk(
@@ -36,12 +38,32 @@ export const registerStudentToProgram = createAsyncThunk(
     return axios
       .put(path, { pipeline, applicationDate })
       .then((result) => {
+        console.log(result);
+
         if (result.status === 200) {
           return { student: result.data };
         }
       })
       .catch((err) => {
-        return { msg: "Already applied to this program", err: err };
+        return { msg: err };
+      });
+  }
+);
+
+export const getStudentById = createAsyncThunk(
+  "students/getStudentById",
+  async (studentId) => {
+    const path = studentById(studentId);
+
+    return axios
+      .get(path)
+      .then((result) => {
+        if (result.status === 200) {
+          return { student: result.data };
+        }
+      })
+      .catch((err) => {
+        return { msg: err };
       });
   }
 );
@@ -49,11 +71,7 @@ export const registerStudentToProgram = createAsyncThunk(
 export const studentsSlice = createSlice({
   name: "students",
   initialState,
-  reducers: {
-    getStudent: (state, action) => {
-      state.student = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: {
     [loadStudents.pending]: (state) => {
       state.loaded = false;
@@ -70,9 +88,21 @@ export const studentsSlice = createSlice({
     [registerStudentToProgram.pending]: (state) => {},
     [registerStudentToProgram.fulfilled]: (state, action) => {
       if (action.payload.student) {
-        state.student = action.payload;
+        state.student = action.payload.student;
       } else {
-        console.log(action.payload.msg);
+        console.error(action.payload.msg);
+      }
+    },
+    [getStudentById.pending]: (state, action) => {
+      state.loadedStudent = false;
+    },
+    [getStudentById.fulfilled]: (state, action) => {
+      if (action.payload.student) {
+        state.student = action.payload.student;
+        state.errorStudent = null;
+        state.loadedStudent = true;
+      } else {
+        console.error("error message:", action.payload.msg);
       }
     },
   },
@@ -80,11 +110,15 @@ export const studentsSlice = createSlice({
 
 export const selectStudents = (state) => state.students.value;
 
-export const selectStudent = (state) => state.students.student;
-
 export const selectLoaded = (state) => state.students.loaded;
 
 export const selectError = (state) => state.students.error;
+
+export const selectStudent = (state) => state.students.student;
+
+export const selectLoadedStudent = (state) => state.students.loadedStudent;
+
+export const selectErrorStudent = (state) => state.students.errorStudent;
 
 export const { getStudent } = studentsSlice.actions;
 

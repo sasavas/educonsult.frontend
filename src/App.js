@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import SideMenu from "./Modules/MenuModule/SideMenu";
@@ -31,7 +32,7 @@ const App = () => {
           <Route exact path="/students" component={Students}></Route>
           <Route exact path="/addStudent" component={AddStudent}></Route>
           <Route
-            path="/studentDetails"
+            path="/studentDetails/:id"
             exact
             component={StudentDetails}
           ></Route>

@@ -30,7 +30,7 @@ function ProgramApplicationCard({ course, student, pipelines }) {
   };
 
   return (
-    <React.Fragment>
+    <div>
       <Card>
         <div className={styles.cardTitle}>
           <h4>{course.fieldName}</h4>
@@ -125,7 +125,9 @@ function ProgramApplicationCard({ course, student, pipelines }) {
               <Col sm="9">
                 <select className="form-select" onChange={handleSelectPipeline}>
                   {pipelines.map((p) => (
-                    <option value={p._id}>{p.name}</option>
+                    <option key={p._id} value={p._id}>
+                      {p.name}
+                    </option>
                   ))}
                 </select>
               </Col>
@@ -151,8 +153,8 @@ function ProgramApplicationCard({ course, student, pipelines }) {
           <Button
             variant="primary"
             onClick={() => {
-              console.log(course);
-              console.log(student);
+              console.log("course", course);
+              console.log("student", student);
               dispatch(
                 registerStudentToProgram({
                   studentId: student._id,
@@ -167,7 +169,7 @@ function ProgramApplicationCard({ course, student, pipelines }) {
           </Button>
         </Modal.Footer>
       </Modal>
-    </React.Fragment>
+    </div>
   );
 }
 
