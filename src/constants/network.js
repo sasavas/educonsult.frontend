@@ -2,17 +2,23 @@ export const networkBase = "http://localhost:3008";
 
 /** Course Routes */
 
-export const coursesRoute = networkBase + "/programs";
+const programs = "programs";
+
+export const coursesRoute = `${networkBase}/${programs}`;
 
 /** Students Routes */
 
-export const studentsRoute = networkBase + "/students";
+const students = "students";
 
-export const studentById = (id) => `${networkBase}/students/${id}`;
+export const studentsRoute = `${networkBase}/${students}`;
+
+export const studentById = (id) => `${networkBase}/${students}/${id}`;
 
 export const registerStudent = (studentId, programId) =>
-  `${networkBase}/students/${studentId}/${programId}`;
+  `${networkBase}/${students}/${studentId}/${programId}`;
 
 /** Pipeline Routes */
 
-export const pipelinesRoute = `${networkBase}/pipelines`;
+const pipelines = "pipelines";
+
+export const pipelinesRoute = `${networkBase}/${pipelines}`;
