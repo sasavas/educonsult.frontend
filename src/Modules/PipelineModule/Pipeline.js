@@ -7,7 +7,7 @@ const Pipeline = ({ pipeline }) => {
       <Row className="d-flex justift-content-center">
         <Col md={10}>
           {pipeline.steps.map((s, i) => (
-            <div style={{ display: "inline" }}>
+            <div key={i} style={{ display: "inline" }}>
               <span style={{ fontWeight: "bold" }}>{i + 1}. </span>
               <span>{s.text + ", "}</span>
             </div>
