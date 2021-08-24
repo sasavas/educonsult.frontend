@@ -6,6 +6,8 @@ const programs = "programs";
 
 export const coursesRoute = `${networkBase}/${programs}`;
 
+export const courseById = (id) => `${networkBase}/${programs}/${id}`;
+
 /** Students Routes */
 
 const students = "students";

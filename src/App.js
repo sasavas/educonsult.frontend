@@ -10,6 +10,7 @@ import AddCourse from "./Modules/CourseModule/AddCourse";
 import StudentDetails from "./Modules/StudentModule/StudentDetails";
 import ProgramApplication from "./Modules/StudentModule/ProgramApplication";
 import Pipelines from "./Modules/PipelineModule/Pipelines";
+import CourseDetail from "./Modules/CourseModule/CourseDetail";
 
 const App = () => {
   return (
@@ -30,6 +31,11 @@ const App = () => {
           <Route exact path="/" component={Dashboard}></Route>
           <Route exact path="/courses" component={Courses}></Route>
           <Route exact path="/addCourse" component={AddCourse}></Route>
+          <Route
+            exact
+            path="/courseDetails/:id"
+            component={CourseDetail}
+          ></Route>
           <Route exact path="/students" component={Students}></Route>
           <Route exact path="/addStudent" component={AddStudent}></Route>
           <Route exact path="/pipelines" component={Pipelines}></Route>

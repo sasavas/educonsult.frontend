@@ -1,5 +1,7 @@
-import styles from "./CourseCard.module.css";
+import { Link } from "react-router-dom";
 import Card from "../../components/Card";
+
+import styles from "./CourseCard.module.css";
 
 const CourseCard = ({ course }) => {
   const capitalize = (string) => {
@@ -26,9 +28,6 @@ const CourseCard = ({ course }) => {
                   {capitalize(course.programType)}
                 </span>
               </div>
-              <p className={`card-text ${styles.programDetailsNotes}`}>
-                {course.notes}
-              </p>
               {course.lanugage && (
                 <p className="card-text">
                   <span style={{ fontWeight: "bold" }}>Language: </span>{" "}
@@ -49,6 +48,9 @@ const CourseCard = ({ course }) => {
                   {course.languageRequirement.minScore}
                 </p>
               )}
+              <p className={`card-text ${styles.programDetailsNotes}`}>
+                {course.notes}
+              </p>
             </div>
             <div className={styles.programDates}>
               <p>
@@ -59,9 +61,12 @@ const CourseCard = ({ course }) => {
                 <span style={{ fontWeight: "bold" }}>Başvuru Bitiş: </span>
                 <span>{course.applicationDates.endDate.substring(0, 10)}</span>
               </p>
-              <button className="btn btn-light-primary">
-                Daha Fazla Bilgi
-              </button>
+              <Link
+                to={"courseDetails/" + course._id}
+                className="btn btn-light-primary"
+              >
+                Detay Göster
+              </Link>
             </div>
           </div>
         </div>
