@@ -5,6 +5,7 @@ import styles from "./ActiveApplications.module.css";
 import React from "react";
 import { useSelector } from "react-redux";
 import { selectStudent } from "../../state/features/studentsSlice.js";
+import { capitalizeFirstLetter } from "../../helpers/stringHelpers.js";
 
 function ActiveApplications() {
   const student = useSelector(selectStudent);
@@ -16,7 +17,9 @@ function ActiveApplications() {
           return (
             <div key={rp.program._id}>
               <Card>
-                <h6 className="card-title">{`${rp.program.school.name}, ${rp.program.programName}`}</h6>
+                <h6 className="card-title">{`${capitalizeFirstLetter(
+                  rp.program.school.name
+                )}, ${rp.program.programName}`}</h6>
                 <div className={styles.pipelineCard}>
                   {rp.pipeline.steps.map((p) => (
                     <PipelineItem key={p._id} item={p}></PipelineItem>

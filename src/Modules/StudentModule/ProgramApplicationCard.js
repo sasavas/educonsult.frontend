@@ -5,6 +5,7 @@ import styles from "./ProgramApplicationCard.module.css";
 import { useDispatch } from "react-redux";
 import { registerStudentToProgram } from "../../state/features/studentsSlice.js";
 import DatePicker from "react-date-picker";
+import { capitalizeFirstLetter } from "../../helpers/stringHelpers.js";
 
 function ProgramApplicationCard({ course, student, pipelines }) {
   const dispatch = useDispatch();
@@ -25,17 +26,15 @@ function ProgramApplicationCard({ course, student, pipelines }) {
     setApplicationDate(date);
   }
 
-  const capitalize = (string) => {
-    return string[0].toUpperCase() + string.substring(1);
-  };
-
   return (
     <div>
       <Card>
         <div className={styles.cardTitle}>
           <h4>{course.programName}</h4>
-          <span>{capitalize(course.school.name)}, </span>
-          <span className="fst-italic">{capitalize(course.programType)}</span>
+          <span>{capitalizeFirstLetter(course.school.name)}, </span>
+          <span className="fst-italic">
+            {capitalizeFirstLetter(course.programType)}
+          </span>
         </div>
         <div className={styles.programContainer}>
           <div className={styles.programDetails}>
