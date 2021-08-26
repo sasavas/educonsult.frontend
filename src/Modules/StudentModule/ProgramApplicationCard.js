@@ -33,9 +33,9 @@ function ProgramApplicationCard({ course, student, pipelines }) {
     <div>
       <Card>
         <div className={styles.cardTitle}>
-          <h4>{course.fieldName}</h4>
+          <h4>{course.programName}</h4>
           <span>{capitalize(course.school.name)}, </span>
-          <span className="fst-italic">{capitalize(course.fieldType)}</span>
+          <span className="fst-italic">{capitalize(course.programType)}</span>
         </div>
         <div className={styles.programContainer}>
           <div className={styles.programDetails}>
@@ -113,7 +113,7 @@ function ProgramApplicationCard({ course, student, pipelines }) {
                 <Form.Control
                   plaintext
                   readOnly
-                  defaultValue={course.fieldName}
+                  defaultValue={course.programName}
                 />
               </Col>
             </Form.Group>
