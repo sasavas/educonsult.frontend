@@ -163,6 +163,7 @@ function ProgramApplicationCard({ course, student, pipelines }) {
                   applicationDate: applicationDate,
                 })
               );
+              handleClose();
             }}
           >
             Başvuru Yap
