@@ -1,0 +1,22 @@
+.mainContainer {
+    display: flex;
+    max-width: 12rem;
+    gap: 2rem;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+.statisticsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.icon {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
