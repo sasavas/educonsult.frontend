@@ -91,7 +91,7 @@ function ProgramApplicationCard({ course, student, pipelines }) {
         </Modal.Header>
         <Modal.Body>
           <Form>
-            <Form.Group as={Row} className="mb-3" controlId="formBasicEmail">
+            <Form.Group as={Row} mb="3" controlId="studentName">
               <Form.Label column sm="3">
                 Öğrenci
               </Form.Label>
@@ -104,7 +104,7 @@ function ProgramApplicationCard({ course, student, pipelines }) {
               </Col>
             </Form.Group>
 
-            <Form.Group as={Row} className="mb-3" controlId="formBasicPassword">
+            <Form.Group as={Row} mb="3" controlId="program">
               <Form.Label column sm="3">
                 Bölüm
               </Form.Label>
@@ -117,7 +117,7 @@ function ProgramApplicationCard({ course, student, pipelines }) {
               </Col>
             </Form.Group>
 
-            <Form.Group as={Row} className="mb-3" controlId="formBasicPassword">
+            <Form.Group as={Row} className="mb-3" controlId="pipeline">
               <Form.Label column sm="3">
                 Pipeline
               </Form.Label>
@@ -131,7 +131,7 @@ function ProgramApplicationCard({ course, student, pipelines }) {
                 </select>
               </Col>
             </Form.Group>
-            <Form.Group as={Row} className="mb-3" controlId="formBasicPassword">
+            <Form.Group as={Row} mb="3" controlId="applicationDates">
               <Form.Label column sm="3">
                 Başvuru Tarihi
               </Form.Label>
