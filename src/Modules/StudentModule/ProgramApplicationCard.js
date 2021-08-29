@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Card from "../../components/Card";
-import { Modal, Form, Button, Row, Col } from "react-bootstrap";
-import styles from "./ProgramApplicationCard.module.css";
 import { useDispatch } from "react-redux";
 import { registerStudentToProgram } from "../../state/features/studentsSlice.js";
-import DatePicker from "react-date-picker";
 import { capitalizeFirstLetter } from "../../helpers/stringHelpers.js";
+import { Modal, Form, Button, Row, Col } from "react-bootstrap";
+import DatePicker from "react-date-picker";
+import Card from "../../components/Card";
+import styles from "./ProgramApplicationCard.module.css";
 
 function ProgramApplicationCard({ course, student, pipelines }) {
   const dispatch = useDispatch();
@@ -40,21 +40,21 @@ function ProgramApplicationCard({ course, student, pipelines }) {
           <div className={styles.programDetails}>
             {course.language && (
               <p className={styles.cardText}>
-                <span style={{ fontWeight: "bold" }}>Language: </span>{" "}
+                <span className={styles.bold}>Language: </span>{" "}
                 {course.language}
               </p>
             )}
             {course.vacancies && (
               <p className={styles.cardText}>
-                <span style={{ fontWeight: "bold" }}>Kontenjan: </span>
+                <span className={styles.bold}>Kontenjan: </span>
                 {course.vacancies + ", "}
               </p>
             )}
             {course.languageRequirement && (
               <p className={styles.cardText}>
-                <span style={{ fontWeight: "bold" }}>Dil Sınavı: </span>
+                <span className={styles.bold}>Dil Sınavı: </span>
                 {course.languageRequirement.certificateName}
-                <span style={{ fontWeight: "bold" }}>, Baraj Puan: </span>
+                <span className={styles.bold}>, Baraj Puan: </span>
                 {course.languageRequirement.minScore}
               </p>
             )}
@@ -67,11 +67,11 @@ function ProgramApplicationCard({ course, student, pipelines }) {
           </div>
           <div className={styles.programDates}>
             <p>
-              <span style={{ fontWeight: "bold" }}>Başvuru Başlangıç: </span>
+              <span className={styles.bold}>Başvuru Başlangıç: </span>
               <span>{course.applicationDates.beginDate.substring(0, 10)}</span>
             </p>
             <p>
-              <span style={{ fontWeight: "bold" }}>Başvuru Bitiş: </span>
+              <span className={styles.bold}>Başvuru Bitiş: </span>
               <span>{course.applicationDates.endDate.substring(0, 10)}</span>
             </p>
             <button className="btn btn-light-primary" onClick={handleShow}>

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import MainMenuItem from "./MainMenuItem";
 import menuItems from "../../constants/menuItems";
 import SubMenuItem from "./SubMenuItem";
