@@ -11,9 +11,7 @@ const StudentTile = ({ student }) => {
             <div className={styles.studentPicture}>
               <img
                 className="img img-thumbnail img-responsive"
-                src={`assets/images/faces/${
-                  Math.floor(Math.random() * 3) + 1
-                }.jpg`}
+                src={`assets/images/samples/placeholder-image.jpg`}
                 alt="Öğrenci Fotoğrafı"
               ></img>
             </div>

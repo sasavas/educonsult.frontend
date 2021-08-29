@@ -1,12 +1,14 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-expressions */
 function slideToggle(t, e, o) {
   0 === t.clientHeight ? j(t, e, o, !0) : j(t, e, o);
 }
-function slideUp(t, e, o) {
-  j(t, e, o);
-}
-function slideDown(t, e, o) {
-  j(t, e, o, !0);
-}
+// function slideUp(t, e, o) {
+//   j(t, e, o);
+// }
+// function slideDown(t, e, o) {
+//   j(t, e, o, !0);
+// }
 function j(t, e, o, i) {
   void 0 === e && (e = 400),
     void 0 === i && (i = !1),
@@ -91,12 +93,12 @@ document.querySelector(".sidebar-hide").addEventListener("click", () => {
 });
 
 // Perfect Scrollbar Init
-if (typeof PerfectScrollbar == "function") {
-  const container = document.querySelector(".sidebar-wrapper");
-  const ps = new PerfectScrollbar(container, {
-    wheelPropagation: false,
-  });
-}
+// if (typeof PerfectScrollbar == "function") {
+// const container = document.querySelector(".sidebar-wrapper");
+// const ps = new PerfectScrollbar(container, {
+//   wheelPropagation: false,
+// });
+// }
 
 // Scroll into active sidebar
 document.querySelector(".sidebar-item.active").scrollIntoView(false);

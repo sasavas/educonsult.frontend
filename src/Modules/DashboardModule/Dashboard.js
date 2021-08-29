@@ -9,7 +9,6 @@ const Dashboard = () => {
   useEffect(() => {
     axios.get("http://localhost:3008/dashboard").then((res) => {
       setCounts(res.data);
-      console.log(res.data);
     });
   }, []);
 
@@ -35,7 +34,12 @@ const Dashboard = () => {
       <h2 style={{ marginBottom: "2rem" }}>Dashboard</h2>
       <Row>
         {makeStatisticsCardItem(counts).map((c) => (
-          <StatisticsCard title={c.title} count={c.count} iconClass={c.icon} />
+          <StatisticsCard
+            key={c.title}
+            title={c.title}
+            count={c.count}
+            iconClass={c.icon}
+          />
         ))}
       </Row>
     </div>
