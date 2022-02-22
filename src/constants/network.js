@@ -1,7 +1,4 @@
-export const networkBase =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:3008"
-    : "https://educonsult-be.herokuapp.com/";
+export const networkBase = process.env.REACT_APP_BASEURL;
 
 /** Course Routes */
 
