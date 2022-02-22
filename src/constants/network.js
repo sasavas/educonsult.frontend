@@ -1,4 +1,7 @@
-export const networkBase = "http://localhost:3008";
+export const networkBase =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3008"
+    : "https://educonsult-be.herokuapp.com/";
 
 /** Course Routes */
 
