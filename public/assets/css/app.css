@@ -942,7 +942,9 @@
 }
 
 .sidebar-wrapper .sidebar-header img {
-    height: 1.2rem
+    height: 8rem;
+    padding: 1rem;  
+    background-color: lightgray;
 }
 
 .sidebar-wrapper .sidebar-toggler.x {

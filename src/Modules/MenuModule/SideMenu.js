@@ -12,7 +12,7 @@ const SideMenu = () => {
             <div className="d-flex justify-content-between">
               <div className="logo">
                 <a href="/">
-                  <img src="assets/images/logo/logo.png" alt="Logo" />
+                  <img src="assets/images/logo/logo.webp" alt="Logo" />
                 </a>
               </div>
               <div className="toggler">
