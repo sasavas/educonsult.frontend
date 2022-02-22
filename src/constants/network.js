@@ -1,5 +1,11 @@
 export const networkBase = process.env.REACT_APP_BASEURL;
 
+/** Dashboard route */
+
+const dashboard = "dashboard";
+
+export const dashboardRoute = `${networkBase}/${dashboard}`;
+
 /** Course Routes */
 
 const programs = "programs";

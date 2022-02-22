@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Row } from "react-bootstrap";
 import StatisticsCard from "./StatisticsCard";
+import { dashboardRoute } from "../../constants/network";
 
 const Dashboard = () => {
   const [counts, setCounts] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3008/dashboard").then((res) => {
+    axios.get(dashboardRoute).then((res) => {
       setCounts(res.data);
     });
   }, []);
